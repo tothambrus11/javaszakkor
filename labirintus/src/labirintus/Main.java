@@ -21,8 +21,16 @@ public class Main {
 	/**
 	 * @param args
 	 */
+	public static boolean[][] my_array;
+	public static int targetX = 5;
+	public static int targetY = 5;
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		my_array = generate_array();
+		int[] x_coordinates = new int[0];
+		int[] y_coordinates = new int[0];
+		go(0, 0, x_coordinates, y_coordinates);
 	}
 	
 	public static boolean[][] generate_array(){
@@ -32,7 +40,9 @@ public class Main {
 		for(int i = 0; i < 10; i++) {
 			for(int j = 0; j < 10; j++) {
 				array[i][j] = random.nextBoolean();
+				System.out.print(array[i][j]+"\t");
 			}
+			System.out.println();
 		}
 		return array;
 	}
@@ -44,30 +54,65 @@ public class Main {
 		}
 		return false;
 	}
+	
 	public static void go(int x, int y, int[] x_coordinates, int[] y_coordinates) {
-		//Fel
-		if(y-1 >= 0 && !in_array(x,(y-1), x_coordinates, y_coordinates)) {
-			int[] x_cords = Arrays.copyOf(x_coordinates, x_coordinates.length + 1);
-			x_cords[x_cords.length-1] = x;
-			
-			int[] y_cords = Arrays.copyOf(y_coordinates, y_coordinates.length + 1);
-			y_cords[y_cords.length-1] = y-1;
-			
-			go(x, y-1, x_cords, y_cords);
+		if(x == targetX && y == targetY) {
+			for(int i = 0; i < x_coordinates.length; i++) {
+				System.out.print("x: "+x_coordinates[i]+"\ty: "+y_coordinates[i]+"\n");
+			}
+			System.out.println();
 		}
-		//Jobbra
-		if(x+1 <= 9 && !in_array(x+1,(y), x_coordinates, y_coordinates)) {
-			int[] x_cords = Arrays.copyOf(x_coordinates, x_coordinates.length + 1);
-			x_cords[x_cords.length-1] = x+1;
+		else {
+			//Fel
+			if(y-1 >= 0 && !in_array(x,(y-1), x_coordinates, y_coordinates) && !my_array[x][y-1]) {
+				int[] x_cords = Arrays.copyOf(x_coordinates, x_coordinates.length + 1);
+				x_cords[x_cords.length-1] = x;
+				
+				int[] y_cords = Arrays.copyOf(y_coordinates, y_coordinates.length + 1);
+				y_cords[y_cords.length-1] = y-1;
+				
+				go(x, y-1, x_cords, y_cords);
+				x_cords = null;
+				y_cords = null;
+			}
+			//Le
+			if(y+1 <= 9 && !in_array(x,(y+1), x_coordinates, y_coordinates) && !my_array[x][y+1]) {
+				int[] x_cords = Arrays.copyOf(x_coordinates, x_coordinates.length + 1);
+				x_cords[x_cords.length-1] = x;
+				
+				int[] y_cords = Arrays.copyOf(y_coordinates, y_coordinates.length + 1);
+				y_cords[y_cords.length-1] = y+1;
+				
+				go(x, y-1, x_cords, y_cords);
+				x_cords = null;
+				y_cords = null;
+			}
+			//Jobbra
+			if(x+1 <= 9 && !in_array(x+1,y, x_coordinates, y_coordinates) && !my_array[x+1][y]) {
+				int[] x_cords = Arrays.copyOf(x_coordinates, x_coordinates.length + 1);
+				x_cords[x_cords.length-1] = x+1;
+				
+				int[] y_cords = Arrays.copyOf(y_coordinates, y_coordinates.length + 1);
+				y_cords[y_cords.length-1] = y;
+				
+				go(x+1, y, x_cords, y_cords);
+				x_cords = null;
+				y_cords = null;
+			}
 			
-			int[] y_cords = Arrays.copyOf(y_coordinates, y_coordinates.length + 1);
-			y_cords[y_cords.length-1] = y;
-			
-			go(x+1, y, x_cords, y_cords);
+			//Balra
+			if(x-1 >= 0 && !in_array(x-1,(y), x_coordinates, y_coordinates) && !my_array[x-1][y]) {
+				int[] x_cords = Arrays.copyOf(x_coordinates, x_coordinates.length + 1);
+				x_cords[x_cords.length-1] = x-1;
+				
+				int[] y_cords = Arrays.copyOf(y_coordinates, y_coordinates.length + 1);
+				y_cords[y_cords.length-1] = y;
+				
+				go(x-1, y, x_cords, y_cords);
+				x_cords = null;
+				y_cords = null;
+			}
 		}
-		//Le
-		
-		//Balra
 	}
 
 }
