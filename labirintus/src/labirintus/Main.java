@@ -28,8 +28,10 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		my_array = generate_array();
-		int[] x_coordinates = new int[0];
-		int[] y_coordinates = new int[0];
+		int[] x_coordinates = new int[1];
+		int[] y_coordinates = new int[1];
+		x_coordinates[0] = 0;
+		y_coordinates[0] = 0;
 		go(0, 0, x_coordinates, y_coordinates);
 	}
 	
@@ -56,6 +58,11 @@ public class Main {
 	}
 	
 	public static void go(int x, int y, int[] x_coordinates, int[] y_coordinates) {
+		for(int i = 0; i < x_coordinates.length; i++) {
+			System.out.print("x: "+x_coordinates[i]+" y: "+y_coordinates[i]+"\n");
+		}
+		System.out.println("----");
+		
 		if(x == targetX && y == targetY) {
 			for(int i = 0; i < x_coordinates.length; i++) {
 				System.out.print("x: "+x_coordinates[i]+"\ty: "+y_coordinates[i]+"\n");
