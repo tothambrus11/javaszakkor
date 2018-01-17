@@ -49,7 +49,7 @@ public class Main {
 		for(int i = 0; i < 10; i++) {
 			for(int j = 0; j < 10; j++) {
 				array[i][j] = random.nextBoolean();
-				System.out.print((array[i][j] ? "_-_-_-_-" : "") +"\t");
+				System.out.print((array[i][j] ? "X" : " ") +"");
 			}
 			System.out.println();
 		}
