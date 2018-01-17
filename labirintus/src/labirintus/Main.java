@@ -80,11 +80,11 @@ public class Main {
 		}
 		else {
 			print_tabs(count_recursion);
-			System.out.println("--DÖNTÉSEK KEZDETE--");
+			System.out.println("--Na most merre mehetek?--");
 			//Fel
 			if(y-1 >= 0 && !in_array(x,(y-1), x_coordinates, y_coordinates) && !my_array[x][y-1]) {
 				print_tabs(count_recursion);
-				System.out.println("\tLehet felfele menni.");
+				System.out.println("\tLehet felfele menni. Megyek arra.");
 				int[] x_cords = Arrays.copyOf(x_coordinates, x_coordinates.length + 1);
 				x_cords[x_cords.length-1] = x;
 				
@@ -102,7 +102,7 @@ public class Main {
 			//Le
 			if(y+1 <= 9 && !in_array(x,(y+1), x_coordinates, y_coordinates) && !my_array[x][y+1]) {
 				print_tabs(count_recursion);
-				System.out.println("\tLehet lefele menni.");
+				System.out.println("\tLehet lefele menni. Megyek arra.");
 				int[] x_cords = Arrays.copyOf(x_coordinates, x_coordinates.length + 1);
 				x_cords[x_cords.length-1] = x;
 				
@@ -121,7 +121,7 @@ public class Main {
 			//Jobbra
 			if(x+1 <= 9 && !in_array(x+1,y, x_coordinates, y_coordinates) && !my_array[x+1][y]) {
 				print_tabs(count_recursion);
-				System.out.println("\tLehet jobbra menni.");
+				System.out.println("\tLehet jobbra menni. Megyek arra.");
 				int[] x_cords = Arrays.copyOf(x_coordinates, x_coordinates.length + 1);
 				x_cords[x_cords.length-1] = x+1;
 				
@@ -140,7 +140,7 @@ public class Main {
 			//Balra
 			if(x-1 >= 0 && !in_array(x-1,(y), x_coordinates, y_coordinates) && !my_array[x-1][y]) {
 				print_tabs(count_recursion);
-				System.out.println("\tLehet balra menni.");
+				System.out.println("\tLehet balra menni. Megyek arra.");
 				int[] x_cords = Arrays.copyOf(x_coordinates, x_coordinates.length + 1);
 				x_cords[x_cords.length-1] = x-1;
 				
