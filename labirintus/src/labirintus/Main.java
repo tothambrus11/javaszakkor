@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 /**
- * @author Tóth Ambrus
+ * @author Tï¿½th Ambrus
  *
  */
 public class Main {
@@ -34,7 +34,7 @@ public class Main {
 		y_coordinates[0] = 0;
 		go(0, 0, x_coordinates, y_coordinates, 0);
 		if(best_way == 0) {
-			System.out.println("Nincs út a célponthoz!");
+			System.out.println("Nincs ï¿½t a cï¿½lponthoz!");
 		}
 	}
 	public static void print_tabs(int number) {
@@ -71,11 +71,11 @@ public class Main {
 		System.out.println("----");*/
 		
 		if(x == targetX && y == targetY) {
-			System.out.println("Találat:");
+			System.out.println("Talï¿½lat:");
 			for(int i = 0; i < x_coordinates.length; i++) {
 				System.out.print("x: "+x_coordinates[i]+"\ty: "+y_coordinates[i]+"\n");
 			}
-			System.out.println("--END TALÁLAT--");
+			System.out.println("--END TALï¿½LAT--");
 			best_way = x_coordinates.length;
 		}
 		else {
@@ -155,8 +155,8 @@ public class Main {
 				print_tabs(count_recursion);
 				System.out.println("\tNem lehet balra mennni.");
 			}
-			print_tabs(count_recursion);
-			System.out.println("--DÖNTÉSEK VÉGE--");
+			print_tabs(count_recursion+1);
+			System.out.println("Zsï¿½kutca");
 			
 		}
 	}
