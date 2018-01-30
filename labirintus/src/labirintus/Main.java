@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 /**
- * @author Tï¿½th Ambrus
+ * @authoróth Ambrus
  *
  */
 public class Main {
